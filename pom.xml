@@ -1180,6 +1180,7 @@
 		</testResources>
 		<plugins>
 			<!-- Set the build number from mercurial -->
+<!--
 			<plugin>
 				<groupId>org.openolat.mojo</groupId>
 				<artifactId>buildnumber-maven-plugin</artifactId>
@@ -1197,6 +1198,7 @@
 					<doUpdate>true</doUpdate>
 				</configuration>
 			</plugin>
+-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
