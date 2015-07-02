@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>openolat-lms</name>
+	<comment>Welcome to the OpenOLAT (Open Online Learning And Training) Developer Project Site.  This site
+  contains materials chiefly of concern to developers (e.g., unit testing and SCA output etc.)
+  and is rebuilt periodically on a regular basis.  The site structure is divided between
+  project information (e.g., infrastructure, mailing lists, repositories etc.) and reports
+  (e.g., unit testing, SCAs etc.). NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<!-- 
+		<buildCommand>
+			<name>org.eclipse.wst.common.project.facet.core.builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.wst.validation.validationbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		 -->
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<!-- 
+		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
+		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
+		<nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
+		-->
+	</natures>
+</projectDescription>
