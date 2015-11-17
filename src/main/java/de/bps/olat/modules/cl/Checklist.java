@@ -26,6 +26,8 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.ModifiedInfo;
 
@@ -37,6 +39,7 @@ import org.olat.core.id.ModifiedInfo;
  * Initial Date:  23.07.2009 <br>
  * @author bja <bja@bps-system.de>
  */
+@Entity
 public class Checklist extends PersistentObject implements ModifiedInfo, Serializable {
 
 	private static final long serialVersionUID = -723324838609424892L;
