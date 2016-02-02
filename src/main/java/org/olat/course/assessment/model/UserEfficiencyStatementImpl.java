@@ -21,16 +21,22 @@ package org.olat.course.assessment.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.id.ModifiedInfo;
 import org.olat.course.assessment.UserEfficiencyStatement;
 import org.olat.resource.OLATResource;
+import org.olat.resource.OLATResourceImpl;
 
 /**
  * 
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class UserEfficiencyStatementImpl extends PersistentObject implements UserEfficiencyStatement, ModifiedInfo {
 
 	private static final long serialVersionUID = 2996458434418813284L;
@@ -41,7 +47,9 @@ public class UserEfficiencyStatementImpl extends PersistentObject implements Use
 	private Integer attemptedNodes;
 	private Integer passedNodes;
 	
+	@ManyToOne(targetEntity=IdentityImpl.class) 
 	private Identity identity;
+	@ManyToOne(targetEntity=OLATResourceImpl.class) 
 	private OLATResource resource;
 	
 	private String title;

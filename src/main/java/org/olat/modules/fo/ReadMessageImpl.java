@@ -24,13 +24,21 @@
 */
 package org.olat.modules.fo;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 
+@Entity
 public class ReadMessageImpl extends PersistentObject implements ReadMessage {
 
+	@ManyToOne(targetEntity=IdentityImpl.class) 
 	private Identity identity;
+	@ManyToOne(targetEntity=MessageImpl.class)
 	private Message message;
+	@ManyToOne(targetEntity=ForumImpl.class)
 	private Forum forum;
 
 	ReadMessageImpl() {

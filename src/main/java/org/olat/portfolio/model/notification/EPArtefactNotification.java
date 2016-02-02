@@ -21,6 +21,10 @@ package org.olat.portfolio.model.notification;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 import org.olat.basesecurity.IdentityShort;
 import org.olat.core.commons.persistence.PersistentObject;
 
@@ -29,11 +33,12 @@ import org.olat.core.commons.persistence.PersistentObject;
  * 
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class EPArtefactNotification extends PersistentObject implements EPNotification {
 	
 	private static final long serialVersionUID = -1130753550445887894L;
 
-	private Long linkKey;
+	@Id	private Long linkKey;
 	private Date lastModified;
 	private String type;
 	private String structureTitle;
@@ -43,7 +48,7 @@ public class EPArtefactNotification extends PersistentObject implements EPNotifi
 	private Long rootMapKey;
 	private Long pageKey;
 	
-	private IdentityShort author;
+	@ManyToOne private IdentityShort author;
 
 	public Long getLinkKey() {
 		return linkKey;

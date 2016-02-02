@@ -25,20 +25,26 @@
 
 package org.olat.upgrade.model;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.resource.OLATResource;
+import org.olat.resource.OLATResourceImpl;
 
 /**
  * Description:<BR/> Initial Date: Aug 23, 2004
  * 
  * @author gnaegi
  */
+@Entity
 public class BGAreaUpgrade extends PersistentObject {
 
 	private static final long serialVersionUID = 4452153442327716546L;
 	private String name;
 	private String description;
 	private Long groupContextKey;
+	@ManyToOne(targetEntity=OLATResourceImpl.class)
 	private OLATResource resource;
 
 	/**

@@ -19,6 +19,8 @@
  */
 package org.olat.portfolio.model.structel;
 
+import javax.persistence.Entity;
+
 /**
  * Description:<br>
  * TODO: rhaag Class Description for PortfolioStructurePage
@@ -27,6 +29,7 @@ package org.olat.portfolio.model.structel;
  * Initial Date:  08.06.2010 <br>
  * @author rhaag
  */
+@Entity
 public class EPPage extends EPStructureElement  {
 
 	private static final long serialVersionUID = -3612344225824264507L;

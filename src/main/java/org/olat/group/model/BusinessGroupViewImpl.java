@@ -21,29 +21,40 @@ package org.olat.group.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
 import org.olat.basesecurity.Group;
+import org.olat.basesecurity.model.GroupImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.util.resource.OresHelper;
 import org.olat.group.BusinessGroup;
+import org.olat.group.BusinessGroupImpl;
 import org.olat.group.BusinessGroupManagedFlag;
 import org.olat.group.BusinessGroupView;
 import org.olat.resource.OLATResource;
+import org.olat.resource.OLATResourceImpl;
 
 /**
  * 
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class BusinessGroupViewImpl extends PersistentObject implements BusinessGroupView {
 
 	private static final long serialVersionUID = -9042740930754224954L;
 	
+	@Transient 
 	private Long identityKey;
 	private String description;
 	private String name;
 	private String externalId;
 	private Integer minParticipants;
 	private Integer maxParticipants;
+	@ManyToOne(targetEntity=OLATResourceImpl.class)
 	private OLATResource resource;
+	@ManyToOne (targetEntity=GroupImpl.class)
 	private Group baseGroup;
 	private Date lastUsage;
 	private Boolean waitingListEnabled;
@@ -54,6 +65,7 @@ public class BusinessGroupViewImpl extends PersistentObject implements BusinessG
 	private long numOfOwners;
 	private long numOfParticipants;
 	private long numOfPendings;
+	@Transient 
 	private long numWaiting;
 	private long numOfRelations;
 	private long numOfOffers;

@@ -21,6 +21,8 @@ package org.olat.basesecurity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 
 /**
@@ -33,6 +35,7 @@ import org.olat.core.commons.persistence.PersistentObject;
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
 //fxdiff: FXOLAT-219 decrease the load for synching groups
+@Entity
 public class IdentityShort extends PersistentObject implements IdentityNames {
 
 	private static final long serialVersionUID = -9039644291427632379L;

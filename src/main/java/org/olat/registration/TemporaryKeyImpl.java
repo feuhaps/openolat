@@ -27,6 +27,10 @@ package org.olat.registration;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Version;
+
 import org.olat.core.id.CreateInfo;
 
 /**
@@ -35,8 +39,10 @@ import org.olat.core.id.CreateInfo;
  * 
  * @author Sabina Jeger
  */
+@Entity
 public class TemporaryKeyImpl implements CreateInfo, TemporaryKey {
 	
+	@Id
 	private Long key = null;
 	private String emailAddress = null;
 	private String ipAddress = null;
@@ -45,6 +51,7 @@ public class TemporaryKeyImpl implements CreateInfo, TemporaryKey {
 	private String registrationKey = null;
 	private String regAction = null;
 	private boolean mailSent = false;
+	@Version
 	private int version;
 
 	/**

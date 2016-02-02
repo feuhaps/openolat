@@ -19,6 +19,8 @@
  */
 package org.olat.modules.wiki.portfolio;
 
+import javax.persistence.Entity;
+
 import org.olat.fileresource.types.WikiResource;
 import org.olat.portfolio.model.artefacts.AbstractArtefact;
 
@@ -31,6 +33,7 @@ import org.olat.portfolio.model.artefacts.AbstractArtefact;
  * Initial Date:  7 oct. 2010 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class WikiArtefact extends AbstractArtefact {
 
 	private static final long serialVersionUID = -3208512062986405560L;

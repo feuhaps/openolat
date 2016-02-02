@@ -22,6 +22,9 @@ package org.olat.resource.accesscontrol.provider.paypal.model;
 
 import java.util.Date;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.util.StringHelper;
 import org.olat.resource.accesscontrol.model.PSPTransaction;
@@ -37,6 +40,7 @@ import org.olat.resource.accesscontrol.model.Price;
  * Initial Date:  26 mai 2011 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class PaypalTransaction extends PersistentObject implements PSPTransaction {
 	
 	private static final long serialVersionUID = -8111089587194349398L;
@@ -46,6 +50,7 @@ public class PaypalTransaction extends PersistentObject implements PSPTransactio
 	private String status;
 	private String secureSuccessUUID;
 	private String secureCancelUUID;
+	@Embedded
 	private Price securePrice;
 	
 	private Long orderId;

@@ -27,6 +27,9 @@ package org.olat.basesecurity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.id.ModifiedInfo;
@@ -39,10 +42,13 @@ import org.olat.core.id.ModifiedInfo;
  * 
  * @author Felix Jost
  */
+@Entity
 public class SecurityGroupMembershipImpl extends PersistentObject implements ModifiedInfo {
 	private static final long serialVersionUID = 2466302280763907357L;
 	
+	@ManyToOne (targetEntity=IdentityImpl.class)
 	private Identity identity;
+	@ManyToOne (targetEntity=SecurityGroupImpl.class)
 	private SecurityGroup securityGroup;
 	private Date lastModified;
 

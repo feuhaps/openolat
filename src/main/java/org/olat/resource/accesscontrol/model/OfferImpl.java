@@ -23,9 +23,14 @@ package org.olat.resource.accesscontrol.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.ModifiedInfo;
 import org.olat.resource.OLATResource;
+import org.olat.resource.OLATResourceImpl;
 
 /**
  * 
@@ -36,6 +41,7 @@ import org.olat.resource.OLATResource;
  * Initial Date:  14 avr. 2011 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class OfferImpl extends PersistentObject implements Offer, ModifiedInfo {
 	private static final long serialVersionUID = 4734372430854498130L;
 
@@ -51,7 +57,10 @@ public class OfferImpl extends PersistentObject implements Offer, ModifiedInfo {
 	private String resourceTypeName;
 	private String resourceDisplayName;
 	
+	@Embedded
 	private Price price;
+	
+	@ManyToOne(targetEntity=OLATResourceImpl.class)
 	private OLATResource resource;
 	
 	private String description;

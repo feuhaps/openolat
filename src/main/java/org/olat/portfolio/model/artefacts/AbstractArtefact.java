@@ -22,6 +22,11 @@ package org.olat.portfolio.model.artefacts;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.id.OLATResourceable;
@@ -36,6 +41,7 @@ import org.olat.core.util.vfs.VFSContainer;
  * Initial Date:  11.06.2010 <br>
  * @author Roman Haag, roman.haag@frentix.com, http://www.frentix.com
  */
+@Entity
 public abstract class AbstractArtefact extends PersistentObject implements Serializable, OLATResourceable {
 
 	private static final long serialVersionUID = -1966363957300570702L;
@@ -59,8 +65,9 @@ public abstract class AbstractArtefact extends PersistentObject implements Seria
 	private String reflexion;
 	private String source;
 	private Date collectionDate;
-	private VFSContainer fileSourceContainer; 
+	@Transient private VFSContainer fileSourceContainer; 
 	
+	@ManyToOne(targetEntity=IdentityImpl.class)
 	private Identity author;
 	
 

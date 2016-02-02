@@ -20,6 +20,8 @@
 
 package org.olat.portfolio.model.artefacts;
 
+import javax.persistence.Entity;
+
 import org.olat.core.gui.util.CSSHelper;
 
 /**
@@ -30,6 +32,7 @@ import org.olat.core.gui.util.CSSHelper;
  * Initial Date:  25 jun. 2010 <br>
  * @author srosse, stephane.rosse@frentix.com, www.frentix.com
  */
+@Entity
 public class FileArtefact extends AbstractArtefact {
 
 	private static final long serialVersionUID = -3719232086297906741L;

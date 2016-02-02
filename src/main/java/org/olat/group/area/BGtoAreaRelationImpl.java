@@ -25,8 +25,12 @@
 
 package org.olat.group.area;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.group.BusinessGroup;
+import org.olat.group.BusinessGroupImpl;
 
 /**
  * Description:<BR/> Implementation of the business group to business group
@@ -34,10 +38,13 @@ import org.olat.group.BusinessGroup;
  * 
  * @author gnaegi
  */
+@Entity
 public class BGtoAreaRelationImpl extends PersistentObject implements BGtoAreaRelation {
 
 	private static final long serialVersionUID = 770758447044422197L;
+	@ManyToOne (targetEntity=BGAreaImpl.class)
 	private BGArea groupArea;
+	@ManyToOne (targetEntity=BusinessGroupImpl.class)
 	private BusinessGroup businessGroup;
 
 	/**

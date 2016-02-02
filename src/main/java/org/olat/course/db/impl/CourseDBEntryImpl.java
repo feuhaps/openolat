@@ -22,6 +22,10 @@ package org.olat.course.db.impl;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.course.db.CourseDBEntry;
@@ -35,11 +39,13 @@ import org.olat.course.db.CourseDBEntry;
  * Initial Date:  7 avr. 2010 <br>
  * @author srosse, stephane.rosse@frentix.com
  */
+@Entity
 public class CourseDBEntryImpl extends PersistentObject implements CourseDBEntry {
 	
 	private static final long serialVersionUID = -6487632477815812235L;
 	
 	private Long courseKey;
+	@ManyToOne(targetEntity=IdentityImpl.class) 
 	private Identity identity;
 	
 	private String category;

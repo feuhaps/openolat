@@ -20,6 +20,10 @@
 
 package org.olat.core.commons.services.mark.impl;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.commons.services.mark.Mark;
 import org.olat.core.id.Identity;
@@ -34,6 +38,7 @@ import org.olat.core.id.OLATResourceable;
  * Initial Date:  9 mar. 2010 <br>
  * @author srosse, stephane.rosse@frentix.com
  */
+@Entity
 public class MarkImpl extends PersistentObject implements Mark {
 
 	private static final long serialVersionUID = 9010184053104344959L;
@@ -42,6 +47,7 @@ public class MarkImpl extends PersistentObject implements Mark {
 	private Long resId;
 	private String resSubPath;
 	private String businessPath;
+	@ManyToOne(targetEntity=IdentityImpl.class) 
 	private Identity creator;
 	
 	@Override

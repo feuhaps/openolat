@@ -19,19 +19,26 @@
  */
 package org.olat.upgrade.model;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.group.BusinessGroup;
+import org.olat.group.BusinessGroupImpl;
 import org.olat.resource.OLATResourceImpl;
 
 /**
  * 
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class BGResourceRelation extends PersistentObject {
 
 	private static final long serialVersionUID = 2215547264646107606L;
 	
+	@ManyToOne(targetEntity=BusinessGroupImpl.class)
 	private BusinessGroup group;
+	@ManyToOne(targetEntity=OLATResourceImpl.class)
 	private OLATResourceImpl resource;
 	
 	private BGResourceRelation() {

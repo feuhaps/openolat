@@ -19,10 +19,13 @@
  */
 package org.olat.modules.fo.portfolio;
 
+import javax.persistence.Entity;
+
 import org.olat.core.util.resource.OresHelper;
 import org.olat.modules.fo.Forum;
 import org.olat.portfolio.model.artefacts.AbstractArtefact;
 
+@Entity
 public class ForumArtefact extends AbstractArtefact {
 
 	private static final long serialVersionUID = -1315885067800017656L;

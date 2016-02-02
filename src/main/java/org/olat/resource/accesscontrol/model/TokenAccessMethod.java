@@ -20,6 +20,8 @@
 
 package org.olat.resource.accesscontrol.model;
 
+import javax.persistence.Entity;
+
 import org.olat.resource.accesscontrol.provider.token.TokenAccessHandler;
 
 
@@ -32,6 +34,7 @@ import org.olat.resource.accesscontrol.provider.token.TokenAccessHandler;
  * Initial Date:  18 avr. 2011 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class TokenAccessMethod extends AbstractAccessMethod {
 
 	private static final long serialVersionUID = -8066110993424490600L;

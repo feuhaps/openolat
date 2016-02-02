@@ -27,8 +27,13 @@ package org.olat.upgrade.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.basesecurity.Group;
 import org.olat.basesecurity.SecurityGroup;
+import org.olat.basesecurity.SecurityGroupImpl;
+import org.olat.basesecurity.model.GroupImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.logging.OLog;
 import org.olat.core.logging.Tracing;
@@ -37,6 +42,7 @@ import org.olat.core.util.resource.OresHelper;
 import org.olat.group.BusinessGroup;
 import org.olat.group.BusinessGroupManagedFlag;
 import org.olat.resource.OLATResource;
+import org.olat.resource.OLATResourceImpl;
 
 /**
  * Description: <br>
@@ -46,7 +52,7 @@ import org.olat.resource.OLATResource;
  * 
  * @author patrick
  */
-
+@Entity
 public class BusinessGroupUpgrade extends PersistentObject implements BusinessGroup {
 
 	private static final long serialVersionUID = -6977108696910447781L;
@@ -58,10 +64,15 @@ public class BusinessGroupUpgrade extends PersistentObject implements BusinessGr
 	private String managedFlagsString;
 	private Integer minParticipants;
 	private Integer maxParticipants;
+	@ManyToOne(targetEntity=OLATResourceImpl.class)
 	private OLATResource resource;
+	@ManyToOne(targetEntity=SecurityGroupImpl.class)
 	private SecurityGroup ownerGroup;
+	@ManyToOne(targetEntity=SecurityGroupImpl.class)
 	private SecurityGroup partipiciantGroup;
+	@ManyToOne(targetEntity=SecurityGroupImpl.class)
 	private SecurityGroup waitingGroup;
+	@ManyToOne(targetEntity=GroupImpl.class)
 	private Group baseGroup;
 	
 	private Date lastUsage;

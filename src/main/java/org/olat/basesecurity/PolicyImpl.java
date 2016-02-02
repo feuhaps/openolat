@@ -27,16 +27,23 @@ package org.olat.basesecurity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.resource.OLATResource;
+import org.olat.resource.OLATResourceImpl;
 
 /**
  * @author Felix Jost
  */
+@Entity
 public class PolicyImpl extends PersistentObject implements Policy {
 
 	private static final long serialVersionUID = 1616085626397520902L;
+	@ManyToOne(targetEntity=OLATResourceImpl.class) 
 	private OLATResource olatResource;
+	@ManyToOne(targetEntity=SecurityGroupImpl.class)
 	private SecurityGroup securityGroup;
 	private String permission;
 	private Date from;

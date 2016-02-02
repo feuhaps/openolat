@@ -26,6 +26,8 @@
 
 package org.olat.course.statistic.studylevel;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.logging.OLog;
 import org.olat.core.logging.Tracing;
@@ -35,6 +37,7 @@ import org.olat.core.logging.Tracing;
  * Initial Date:  20.10.2009 <br>
  * @author Stefan
  */
+@Entity
 public class StudyLevelStat extends PersistentObject {
 	static final OLog log = Tracing.createLoggerFor(StudyLevelStat.class);
 	

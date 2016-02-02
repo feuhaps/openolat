@@ -27,11 +27,16 @@ package org.olat.properties;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.id.ModifiedInfo;
 import org.olat.core.logging.AssertException;
 import org.olat.group.BusinessGroup;
+import org.olat.group.BusinessGroupImpl;
 
 /**
  * Initial Date:  Mar 10, 2004
@@ -41,6 +46,7 @@ import org.olat.group.BusinessGroup;
  * Comment:  
  * 
  */
+@Entity
 public class Property extends PersistentObject implements ModifiedInfo {
 
 	private static final long serialVersionUID = -7029205250635324093L;
@@ -48,7 +54,9 @@ public class Property extends PersistentObject implements ModifiedInfo {
 	/** max length of a category */
   public static int CATEGORY_MAX_LENGHT = 33;
     
+    @ManyToOne(targetEntity=IdentityImpl.class)
 	private Identity identity;
+    @ManyToOne(targetEntity=BusinessGroupImpl.class)
 	private BusinessGroup grp;
 	private String resourceTypeName;
 	private Long resourceTypeId;

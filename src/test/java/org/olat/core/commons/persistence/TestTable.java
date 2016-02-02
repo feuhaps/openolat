@@ -28,12 +28,15 @@ package org.olat.core.commons.persistence;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 /**
  * A <b>TestTable</b> is used to test the persistence package.
  * 
  * @author Andreas Ch. Kapp
  *
  */
+@Entity
 public class TestTable {
 	
 	Long key;

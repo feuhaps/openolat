@@ -26,6 +26,9 @@ package org.olat.course.nodes.projectbroker.datamodel;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Transient;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.logging.AssertException;
 import org.olat.core.util.resource.OresHelper;
@@ -34,9 +37,11 @@ import org.olat.core.util.resource.OresHelper;
  *
  * @author Felix Jost
  */
+@Entity
 public class ProjectBrokerImpl extends PersistentObject implements ProjectBroker {
 
 	private static final long serialVersionUID = -6007111791449152666L;
+	@Transient 
 	private List<Project> projectList;
 
 	/* (non-Javadoc)

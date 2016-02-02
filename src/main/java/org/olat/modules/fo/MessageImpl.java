@@ -27,21 +27,31 @@ package org.olat.modules.fo;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 /**
  * @author Felix Jost
  */
 
+@Entity
 public class MessageImpl extends PersistentObject implements Message {
 	
 	private String title;
 	private String body;
+	@ManyToOne(targetEntity=MessageImpl.class)
 	private Message parent;
+	@ManyToOne(targetEntity=MessageImpl.class)
 	private Message threadtop;
+	@ManyToOne(targetEntity=ForumImpl.class)
 	private Forum forum;
 
+	@ManyToOne(targetEntity=IdentityImpl.class)
 	private Identity creator = null;
+	@ManyToOne(targetEntity=IdentityImpl.class)
 	private Identity modifier = null;
 	private int statusCode;
 	private Date lastModified;

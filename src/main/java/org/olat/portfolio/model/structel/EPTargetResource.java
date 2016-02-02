@@ -19,6 +19,8 @@
  */
 package org.olat.portfolio.model.structel;
 
+import javax.persistence.Embeddable;
+
 import org.olat.core.id.OLATResourceable;
 
 /**
@@ -30,6 +32,7 @@ import org.olat.core.id.OLATResourceable;
  * Initial Date:  2 jul. 2010 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Embeddable
 public class EPTargetResource implements OLATResourceable {
 	
 	private String resName;

@@ -21,6 +21,8 @@
 
 package org.olat.core.util.mail.model;
 
+import javax.persistence.Embeddable;
+
 import org.olat.core.id.OLATResourceable;
 import org.olat.core.util.mail.MailContext;
 
@@ -33,6 +35,7 @@ import org.olat.core.util.mail.MailContext;
  * Initial Date:  30 mars 2011 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Embeddable
 public class DBMailContext implements MailContext {
 	
 	private String resName;

@@ -28,10 +28,14 @@ package org.olat.basesecurity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.id.User;
 import org.olat.core.logging.AssertException;
+import org.olat.user.UserImpl;
 
 
 /**
@@ -39,10 +43,12 @@ import org.olat.core.logging.AssertException;
  * 
  * @author Felix Jost
  */
+@Entity
 public class IdentityImpl extends PersistentObject implements Identity, IdentityRef, Serializable {
 
 	private static final long serialVersionUID = 1762176135363569542L;
 	private String name;
+	@ManyToOne(targetEntity=UserImpl.class) 
 	private User user;
 	private Date lastLogin;
 	private String externalId;

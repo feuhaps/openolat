@@ -20,6 +20,10 @@
 
 package org.olat.core.util.mail.model;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 
@@ -32,10 +36,12 @@ import org.olat.core.id.Identity;
  * Initial Date:  24 mars 2011 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class DBMailRecipient extends PersistentObject {
 
 	private static final long serialVersionUID = -6793421633217512631L;
 	
+	@ManyToOne(targetEntity=IdentityImpl.class) 
 	private Identity recipient;
 	private String emailAddress;
 	private Boolean deleted;

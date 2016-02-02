@@ -25,7 +25,11 @@
 
 package org.olat.repository.model;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.basesecurity.SecurityGroup;
+import org.olat.basesecurity.SecurityGroupImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.logging.AssertException;
 import org.olat.core.util.StringHelper;
@@ -39,6 +43,7 @@ import org.olat.repository.RepositoryEntry;
  * @see org.olat.repository.CatalogEntry
  * @author Felix Jost
  */
+@Entity
 public class CatalogEntryImpl extends PersistentObject implements CatalogEntry {
 
 	private static final long serialVersionUID = 2834235462805397562L;
@@ -46,9 +51,12 @@ public class CatalogEntryImpl extends PersistentObject implements CatalogEntry {
 	private String styleString;
 	private String description;
 	private String externalURL;
+	@ManyToOne
 	private RepositoryEntry repositoryEntry;
+	@ManyToOne(targetEntity=CatalogEntryImpl.class)
 	private CatalogEntry parent;
 
+	@ManyToOne(targetEntity=SecurityGroupImpl.class)
 	private SecurityGroup ownerGroup;
 	private int type;
 

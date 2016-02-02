@@ -39,131 +39,131 @@ import org.olat.core.util.i18n.I18nManager;
  *
  * @author guido
  */
-public class PreferencesImpl implements Preferences {
+public class PreferencesImpl extends Preferences {
 
-	private static final long serialVersionUID = -8013230820111033911L;
-	
-	private String language;
-	private String fontsize;
-	private String notificationInterval;
-	private boolean informSessionTimeout;
-	private String receiveRealMail;
-	private boolean presenceMessagesPublic;
-	
-	/**
-	 * Default constructor.
-	 */
-	public PreferencesImpl() { super(); }
-
-	/**
-	 * Get users language settings
-	 * @return Users language
-	 */
-	public String getLanguage() {
-		return this.language;
-	}
-
-	/** 
-	 * Set users language settings
-	 * @param l new language
-	 */
-	public void setLanguage(String l) {
-		// validate the language; fallback to default
-		I18nManager i18n = I18nManager.getInstance();
-		this.language = i18n.getLocaleOrDefault(l).toString();
-	}
-	
-	/**
-	 * Get users fontsize settings
-	 * @return Users fontsize
-	 */
-	public String getFontsize() {
-		if(this.fontsize == null || this.fontsize.equals(""))
-			fontsize = "100"; //100% is default
-		return this.fontsize;
-	}
-
-	/** 
-	 * Set users fontsize settings
-	 * @param f new fontsize
-	 */
-	public void setFontsize(String f) {
-		// since OLAT 6 the font size is not text but a number. It is the relative
-		// size to the default size
-		try {
-			Integer.parseInt(f);
-			this.fontsize = f;
-		} catch (NumberFormatException e) {
-			this.fontsize = "100"; // default value
-		}
-	}
-	
-	/**
-	 * @param notificationInterval The notificationInterval to set.
-	 */
-	public void setNotificationInterval(String notificationInterval) {
-		this.notificationInterval = notificationInterval;
-	}
-
-	/**
-	 * @return Returns the notificationInterval.
-	 */
-	public String getNotificationInterval() {
-		// Always return a valid notification interval
-		NotificationsManager notiMgr = NotificationsManager.getInstance();
-		if (!StringHelper.containsNonWhitespace(notificationInterval)) {
-			if(notiMgr != null) {
-				notificationInterval = notiMgr.getDefaultNotificationInterval();
-			}
-		} else if(notiMgr != null && notiMgr.getEnabledNotificationIntervals() != null
-			&& !notiMgr.getEnabledNotificationIntervals().contains(notificationInterval)) {
-			notificationInterval = notiMgr.getDefaultNotificationInterval();
-		}
-		return notificationInterval;
-	}
-
-	/**
-	 * @return True if user wants to be informed about the session timeout (popup)
-	 */
-	public boolean getInformSessionTimeout() {
-		return informSessionTimeout;
-	}
-
-	/**
-	 * @param b Set information about wether session timeout should be displayed or not
-	 */
-	public void setInformSessionTimeout(boolean b) {
-		informSessionTimeout = b;
-	}
-	
-	/**
-	 * @see org.olat.core.id.Preferences#isReceiveRealMail()
-	 */
-	//fxdiff VCRP-16: intern mail system
-	@Override
-	public String getReceiveRealMail() {
-		return receiveRealMail;
-	}
-
-	/**
-	 * @see org.olat.core.id.Preferences#setReceiveRealMail(boolean)
-	 */
-	@Override
-	public void setReceiveRealMail(String receiveRealMail) {
-		this.receiveRealMail = receiveRealMail;
-	}
-
-	/**
-	 * @see org.olat.user.Preferences#getPresenceMessagesPublic()
-	 */
-	public boolean getPresenceMessagesPublic() {
-		return presenceMessagesPublic;
-	}
-
-	/**
-	 * @see org.olat.user.Preferences#setPresenceMessagesPublic(boolean)
-	 */
-	public void setPresenceMessagesPublic(boolean b) {
-		this.presenceMessagesPublic = b;
-	}
+//	private static final long serialVersionUID = -8013230820111033911L;
+//	
+//	private String language;
+//	private String fontsize;
+//	private String notificationInterval;
+//	private boolean informSessionTimeout;
+//	private String receiveRealMail;
+//	private boolean presenceMessagesPublic;
+//	
+//	/**
+//	 * Default constructor.
+//	 */
+//	public PreferencesImpl() { super(); }
+//
+//	/**
+//	 * Get users language settings
+//	 * @return Users language
+//	 */
+//	public String getLanguage() {
+//		return this.language;
+//	}
+//
+//	/** 
+//	 * Set users language settings
+//	 * @param l new language
+//	 */
+//	public void setLanguage(String l) {
+//		// validate the language; fallback to default
+//		I18nManager i18n = I18nManager.getInstance();
+//		this.language = i18n.getLocaleOrDefault(l).toString();
+//	}
+//	
+//	/**
+//	 * Get users fontsize settings
+//	 * @return Users fontsize
+//	 */
+//	public String getFontsize() {
+//		if(this.fontsize == null || this.fontsize.equals(""))
+//			fontsize = "100"; //100% is default
+//		return this.fontsize;
+//	}
+//
+//	/** 
+//	 * Set users fontsize settings
+//	 * @param f new fontsize
+//	 */
+//	public void setFontsize(String f) {
+//		// since OLAT 6 the font size is not text but a number. It is the relative
+//		// size to the default size
+//		try {
+//			Integer.parseInt(f);
+//			this.fontsize = f;
+//		} catch (NumberFormatException e) {
+//			this.fontsize = "100"; // default value
+//		}
+//	}
+//	
+//	/**
+//	 * @param notificationInterval The notificationInterval to set.
+//	 */
+//	public void setNotificationInterval(String notificationInterval) {
+//		this.notificationInterval = notificationInterval;
+//	}
+//
+//	/**
+//	 * @return Returns the notificationInterval.
+//	 */
+//	public String getNotificationInterval() {
+//		// Always return a valid notification interval
+//		NotificationsManager notiMgr = NotificationsManager.getInstance();
+//		if (!StringHelper.containsNonWhitespace(notificationInterval)) {
+//			if(notiMgr != null) {
+//				notificationInterval = notiMgr.getDefaultNotificationInterval();
+//			}
+//		} else if(notiMgr != null && notiMgr.getEnabledNotificationIntervals() != null
+//			&& !notiMgr.getEnabledNotificationIntervals().contains(notificationInterval)) {
+//			notificationInterval = notiMgr.getDefaultNotificationInterval();
+//		}
+//		return notificationInterval;
+//	}
+//
+//	/**
+//	 * @return True if user wants to be informed about the session timeout (popup)
+//	 */
+//	public boolean getInformSessionTimeout() {
+//		return informSessionTimeout;
+//	}
+//
+//	/**
+//	 * @param b Set information about wether session timeout should be displayed or not
+//	 */
+//	public void setInformSessionTimeout(boolean b) {
+//		informSessionTimeout = b;
+//	}
+//	
+//	/**
+//	 * @see org.olat.core.id.Preferences#isReceiveRealMail()
+//	 */
+//	//fxdiff VCRP-16: intern mail system
+//	@Override
+//	public String getReceiveRealMail() {
+//		return receiveRealMail;
+//	}
+//
+//	/**
+//	 * @see org.olat.core.id.Preferences#setReceiveRealMail(boolean)
+//	 */
+//	@Override
+//	public void setReceiveRealMail(String receiveRealMail) {
+//		this.receiveRealMail = receiveRealMail;
+//	}
+//
+//	/**
+//	 * @see org.olat.user.Preferences#getPresenceMessagesPublic()
+//	 */
+//	public boolean getPresenceMessagesPublic() {
+//		return presenceMessagesPublic;
+//	}
+//
+//	/**
+//	 * @see org.olat.user.Preferences#setPresenceMessagesPublic(boolean)
+//	 */
+//	public void setPresenceMessagesPublic(boolean b) {
+//		this.presenceMessagesPublic = b;
+//	}
 }

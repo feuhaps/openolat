@@ -21,8 +21,13 @@ package org.olat.portfolio.model.structel;
 
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.resource.OLATResource;
+import org.olat.resource.OLATResourceImpl;
 
 /**
  * This is a help mapping to prevent loading too much from the database
@@ -30,13 +35,16 @@ import org.olat.resource.OLATResource;
  * 
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class EPMapShort extends PersistentObject implements PortfolioStructureMapRef {
 
 	private static final long serialVersionUID = 3093838342982364478L;
 	
 	private String title;
 	private Long sourceMapKey;
+	@ManyToOne(targetEntity=OLATResourceImpl.class)
 	private OLATResource olatResource;
+	@OneToMany 
 	private Set<EPStructureElementToGroupRelation> groups;
 	
 	

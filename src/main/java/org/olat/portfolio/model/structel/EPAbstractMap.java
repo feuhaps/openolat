@@ -21,6 +21,9 @@ package org.olat.portfolio.model.structel;
 
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 /**
  * 
  * Description:<br>
@@ -30,11 +33,12 @@ import java.util.Set;
  * Initial Date:  11.06.2010 <br>
  * @author rhaag, roman.haag@frentix.com, http://www.frentix.com
  */
+@Entity
 public abstract class EPAbstractMap extends EPStructureElement implements PortfolioStructureMap  {
 
 	private static final long serialVersionUID = 3295737167134638317L;
 	
-	private Set<EPStructureElementToGroupRelation> groups;
+	@OneToMany private Set<EPStructureElementToGroupRelation> groups;
 
 	@Override
 	public Set<EPStructureElementToGroupRelation> getGroups() {

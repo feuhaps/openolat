@@ -27,6 +27,9 @@ package org.olat.ims.qti;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 
 /**
@@ -34,11 +37,12 @@ import org.olat.core.commons.persistence.PersistentObject;
  *
  * @author gnaegi
  */
+@Entity
 public class QTIResult extends PersistentObject{ 
 
 	private static final long serialVersionUID = 5999697754463201896L;
 
-	private QTIResultSet resultSet;
+	@ManyToOne private QTIResultSet resultSet;
 	
 	private String itemIdent;
 	private String answer;

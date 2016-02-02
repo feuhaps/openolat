@@ -28,6 +28,8 @@ package org.olat.core.logging.activity;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.logging.AssertException;
 
@@ -38,6 +40,7 @@ import org.olat.core.logging.AssertException;
  * Initial Date:  20.10.2009 <br>
  * @author Stefan
  */
+@Entity
 public class LoggingObject extends PersistentObject {
 	private static final long serialVersionUID = -7960024949707705523L;
 

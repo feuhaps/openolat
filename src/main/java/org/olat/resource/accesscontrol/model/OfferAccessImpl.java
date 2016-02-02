@@ -22,6 +22,9 @@ package org.olat.resource.accesscontrol.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 
 /**
@@ -33,10 +36,13 @@ import org.olat.core.commons.persistence.PersistentObject;
  * Initial Date:  14 avr. 2011 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class OfferAccessImpl extends PersistentObject implements OfferAccess {
 
 	private static final long serialVersionUID = 2538200023418491237L;
+	@ManyToOne(targetEntity=OfferImpl.class)
 	private Offer offer;
+	@ManyToOne(targetEntity=AbstractAccessMethod.class)
 	private AccessMethod method;
 	private boolean valid;
 	private Date validFrom;

@@ -30,9 +30,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
 import org.olat.basesecurity.BaseSecurityManager;
 import org.olat.basesecurity.GroupRoles;
 import org.olat.basesecurity.SecurityGroup;
+import org.olat.basesecurity.SecurityGroupImpl;
 import org.olat.commons.lifecycle.LifeCycleEntry;
 import org.olat.commons.lifecycle.LifeCycleManager;
 import org.olat.core.CoreSpringFactory;
@@ -41,6 +47,7 @@ import org.olat.core.id.Identity;
 import org.olat.core.logging.OLog;
 import org.olat.core.logging.Tracing;
 import org.olat.group.BusinessGroup;
+import org.olat.group.BusinessGroupImpl;
 import org.olat.group.BusinessGroupService;
 import org.olat.resource.accesscontrol.manager.ACReservationDAO;
 
@@ -50,6 +57,7 @@ import org.olat.resource.accesscontrol.manager.ACReservationDAO;
  * @author guretzki
  */
 
+@Entity
 public class ProjectImpl extends PersistentObject implements Project {
 	/**
 	 * 
@@ -61,19 +69,23 @@ public class ProjectImpl extends PersistentObject implements Project {
 	private static final String EVENT_START = "event_start";
 	private static final String EVENT_END   = "event_end";
 
+	@Transient
 	private OLog log = Tracing.createLoggerFor(this.getClass());
 	
 	private String        title;
 	private String        description;
 	private String        state;
 	private int           maxMembers;
+	@ManyToOne(targetEntity=BusinessGroupImpl.class)
 	private BusinessGroup projectGroup; 
 	private String        attachmentFileName;
+	@ManyToOne(targetEntity=ProjectBrokerImpl.class)
 	private ProjectBroker projectBroker;
+	@ManyToOne(targetEntity=SecurityGroupImpl.class)
 	private SecurityGroup candidateGroup;
 	private boolean       mailNotificationEnabled;
 	
-	private Map<String, String> customfields;
+	@ElementCollection private Map<String, String> customfields;
 		
 	/**
 	 * Default constructor needs by hibernate

@@ -27,6 +27,11 @@ package org.olat.ims.qti;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 
@@ -35,6 +40,7 @@ import org.olat.core.id.Identity;
  *
  * @author gnaegi
  */
+@Entity
 public class QTIResultSet extends PersistentObject { 
 
 	private static final long serialVersionUID = -521297938539309016L;
@@ -42,8 +48,9 @@ public class QTIResultSet extends PersistentObject {
 	private String olatResourceDetail;
 	private long repositoryRef;
 	
+	@ManyToOne(targetEntity=IdentityImpl.class)
 	private Identity identity;
-	private int qtiType;
+	@Transient private int qtiType;
 	private long assessmentID;
 	//<OLATCE-1014> allow null for "not set"
 	private Boolean isPassed;

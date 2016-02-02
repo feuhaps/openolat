@@ -21,6 +21,10 @@ package org.olat.portfolio.model.structel;
 
 import java.util.Date;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 /** 
  * Description:<br>
  * TODO: rhaag Class Description for PortfolioStructureStructuredMap
@@ -28,6 +32,7 @@ import java.util.Date;
  * Initial Date:  08.06.2010 <br>
  * @author rhaag
  */
+@Entity
 public class EPStructuredMap extends EPAbstractMap {
 
 	private static final long serialVersionUID = -6360377624351045630L;
@@ -40,7 +45,7 @@ public class EPStructuredMap extends EPAbstractMap {
 	 * links to Map from where its deriving
 	 * @uml.property  name="structuredMapSource"
 	 */
-	private EPStructuredMapTemplate structuredMapSource;
+	@ManyToOne private EPStructuredMapTemplate structuredMapSource;
 	
 
 	/**
@@ -65,7 +70,7 @@ public class EPStructuredMap extends EPAbstractMap {
 	 * links to course wherein it once was assigned to a user
 	 * @uml.property  name="targetResource"
 	 */
-	private EPTargetResource targetResource;
+	@Embedded private EPTargetResource targetResource;
 
 
 	/**

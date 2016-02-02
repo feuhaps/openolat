@@ -27,6 +27,10 @@ package org.olat.note;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.logging.AssertException;
@@ -37,10 +41,12 @@ import org.olat.core.logging.AssertException;
  * 
  * @author Alexander Schneider
  */
+@Entity
 public class NoteImpl extends PersistentObject implements Note {
 
 	private static final long serialVersionUID = -403450817851666464L;
 	
+	@ManyToOne(targetEntity=IdentityImpl.class) 
 	private Identity owner;
 	private String resourceTypeName;
 	private Long resourceTypeId;

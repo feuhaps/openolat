@@ -19,6 +19,9 @@
  */
 package org.olat.portfolio.model.structel;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 
 /**
@@ -30,6 +33,7 @@ import org.olat.core.commons.persistence.PersistentObject;
  * Initial Date:  11.06.2010 <br>
  * @author rhaag, roman.haag@frentix.com, http://www.frentix.com
  */
+@Entity
 public class EPStructureToStructureLink extends PersistentObject {
 
 	private static final long serialVersionUID = -6015515053210505716L;
@@ -69,6 +73,7 @@ public class EPStructureToStructureLink extends PersistentObject {
 	 * @uml.property  name="child"
 	 * @uml.associationEnd  inverse="parent:com.frentix.portfolio.structure.PortfolioStructure"
 	 */
+	@ManyToOne(targetEntity=EPStructureElement.class)
 	private PortfolioStructure child;
 
 	/** 
@@ -102,6 +107,7 @@ public class EPStructureToStructureLink extends PersistentObject {
 	/**
 	 * @uml.property  name="parent"
 	 */
+	@ManyToOne(targetEntity=EPStructureElement.class) 
 	private PortfolioStructure parent;
 
 	/**

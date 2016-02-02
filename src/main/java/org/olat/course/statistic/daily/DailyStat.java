@@ -28,6 +28,8 @@ package org.olat.course.statistic.daily;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 
 /**
@@ -36,6 +38,7 @@ import org.olat.core.commons.persistence.PersistentObject;
  * Initial Date:  18.02.2010 <br>
  * @author Stefan
  */
+@Entity
 public class DailyStat extends PersistentObject {
 
 	private static final long serialVersionUID = -2731771358539901670L;

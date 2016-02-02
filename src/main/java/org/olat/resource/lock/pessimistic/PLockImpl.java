@@ -25,6 +25,8 @@
 
 package org.olat.resource.lock.pessimistic;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 
 /**
@@ -33,6 +35,7 @@ import org.olat.core.commons.persistence.PersistentObject;
  * @author Andreas
  *
  */
+@Entity
 public class PLockImpl extends PersistentObject implements PLock {
 
 	private String asset;

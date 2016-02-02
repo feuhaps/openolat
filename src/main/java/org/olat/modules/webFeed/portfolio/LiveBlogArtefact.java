@@ -20,6 +20,8 @@
 
 package org.olat.modules.webFeed.portfolio;
 
+import javax.persistence.Entity;
+
 import org.olat.fileresource.types.BlogFileResource;
 import org.olat.modules.webFeed.managers.FeedManager;
 import org.olat.modules.webFeed.models.Feed;
@@ -36,6 +38,7 @@ import org.olat.resource.OLATResourceManager;
  * Initial Date:  8 nov. 2010 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class LiveBlogArtefact extends AbstractArtefact {
 
 	private static final long serialVersionUID = -5053371748195771395L;

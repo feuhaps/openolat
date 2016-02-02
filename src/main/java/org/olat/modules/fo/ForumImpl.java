@@ -24,6 +24,8 @@
 */
 package org.olat.modules.fo;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.logging.AssertException;
 import org.olat.core.util.resource.OresHelper;
@@ -32,6 +34,7 @@ import org.olat.core.util.resource.OresHelper;
  *
  * @author Felix Jost
  */
+@Entity
 public class ForumImpl extends PersistentObject implements Forum {
 
 	/* (non-Javadoc)

@@ -19,20 +19,26 @@
  */
 package org.olat.repository.model;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.repository.RepositoryEntryShort;
 import org.olat.resource.OLATResource;
+import org.olat.resource.OLATResourceImpl;
 
 /**
  * 
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class RepositoryEntryShortImpl extends PersistentObject implements RepositoryEntryShort {
 
 	private static final long serialVersionUID = 4599683374800325931L;
 	
 	private String displayName;
 	private String description;
+	@ManyToOne(targetEntity=OLATResourceImpl.class)
 	private OLATResource resource;
 	private int access;
 	private int statusCode;

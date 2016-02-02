@@ -20,6 +20,10 @@
 
 package org.olat.core.commons.services.tagging.model;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.id.OLATResourceable;
@@ -33,6 +37,7 @@ import org.olat.core.id.OLATResourceable;
  * Initial Date:  19 juil. 2010 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class TagImpl extends PersistentObject implements Tag {
 
 	private static final long serialVersionUID = 2272529253221047436L;
@@ -41,6 +46,7 @@ public class TagImpl extends PersistentObject implements Tag {
 	private Long resId;
 	private String resSubPath;
 	private String businessPath;
+	@ManyToOne(targetEntity=IdentityImpl.class) 
 	private Identity author;
 	
 	public TagImpl() {

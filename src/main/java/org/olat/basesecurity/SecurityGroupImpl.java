@@ -25,6 +25,8 @@
 
 package org.olat.basesecurity;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.logging.AssertException;
 
@@ -32,6 +34,7 @@ import org.olat.core.logging.AssertException;
  * The object is immutable
  * @author Felix Jost
  */
+@Entity
 public class SecurityGroupImpl extends PersistentObject implements SecurityGroup {
 
 	/**

@@ -29,6 +29,11 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Transient;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Preferences;
 import org.olat.core.id.User;
@@ -54,19 +59,23 @@ import org.olat.user.propertyhandlers.UserPropertyHandler;
  * <p>
  * @author Florian Gnägi
  */
+@Entity
 public class UserImpl extends PersistentObject implements User {
 
 	private static final long serialVersionUID = -2872102058369727753L;
 	private static final OLog log = Tracing.createLoggerFor(UserImpl.class);
 
+	@Embedded
 	private Preferences preferences;
 	
 	// o_clusterOK by:cg add diInSync in ChangeProfileController and notifiy about change via event-bus
 	// hibernate mapped properties, get stored to the DB
+	@ElementCollection
 	private Map<String, String> properties;
 	
 	// the volatile attributes which are set during log in
 	// but must be made available to the usertracking LoggingObject 
+	@Transient
 	private Map<String, String> identEnvAttribs;
 
 

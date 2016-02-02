@@ -27,6 +27,8 @@ package org.olat.commons.lifecycle;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.logging.AssertException;
 
@@ -35,6 +37,7 @@ import org.olat.core.logging.AssertException;
  *
  * @author Christian Guretzki
  */
+@Entity
 public class LifeCycleEntry extends PersistentObject {
 
 	private static final long serialVersionUID = -2919077675588017564L;

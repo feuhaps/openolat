@@ -21,6 +21,9 @@ package org.olat.portfolio.model.notification;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.basesecurity.IdentityShort;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.util.StringHelper;
@@ -30,6 +33,7 @@ import org.olat.core.util.StringHelper;
  * 
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class EPRatingNotification extends PersistentObject implements EPNotification {
 
 	private static final long serialVersionUID = -1065069940086963966L;
@@ -42,7 +46,7 @@ public class EPRatingNotification extends PersistentObject implements EPNotifica
 	private Long pageKey;
 	private String pageTitle;
 	
-	private IdentityShort author;
+	@ManyToOne private IdentityShort author;
 
 	@Override
 	public Date getLastModified() {

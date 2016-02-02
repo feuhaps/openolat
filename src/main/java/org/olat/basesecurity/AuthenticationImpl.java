@@ -25,6 +25,9 @@
 
 package org.olat.basesecurity;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.logging.AssertException;
@@ -34,9 +37,11 @@ import org.olat.core.logging.AssertException;
  * 
  * @author Felix Jost
  */
+@Entity
 public class AuthenticationImpl extends PersistentObject implements Authentication {
 
 	private static final long serialVersionUID = 7969409958077836798L;
+	@ManyToOne(targetEntity=IdentityImpl.class)
 	private Identity identity;
 	private String provider;
 	private String authusername;

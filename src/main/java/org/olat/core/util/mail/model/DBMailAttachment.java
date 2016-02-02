@@ -21,6 +21,9 @@ package org.olat.core.util.mail.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.gui.util.CSSHelper;
 import org.olat.core.util.mail.MailAttachment;
@@ -34,6 +37,7 @@ import org.olat.core.util.mail.MailAttachment;
  *
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class DBMailAttachment extends PersistentObject implements MailAttachment {
 
 	private static final long serialVersionUID = -1713863670528439651L;
@@ -44,6 +48,7 @@ public class DBMailAttachment extends PersistentObject implements MailAttachment
 	private Long checksum;
 	private String path;
 	private Date lastModified;
+	@ManyToOne(targetEntity=DBMailImpl.class) 
 	private DBMailImpl mail;
 	
 	public DBMailAttachment() {

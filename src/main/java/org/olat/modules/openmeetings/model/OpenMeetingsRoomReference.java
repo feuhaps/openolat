@@ -21,20 +21,26 @@ package org.olat.modules.openmeetings.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.ModifiedInfo;
 import org.olat.group.BusinessGroup;
+import org.olat.group.BusinessGroupImpl;
 
 /**
  * 
  * @author srosse, stephae.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class OpenMeetingsRoomReference extends PersistentObject implements ModifiedInfo {
 
 	private static final long serialVersionUID = -1556626893809537080L;
 
 	private Date lastModified;
 	
+	@ManyToOne(targetEntity=BusinessGroupImpl.class)
 	private BusinessGroup group;
 	private String resourceTypeName;
 	private Long resourceTypeId;

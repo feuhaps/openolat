@@ -20,6 +20,10 @@
 
 package org.olat.resource.accesscontrol.model;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 
 /**
@@ -31,12 +35,16 @@ import org.olat.core.commons.persistence.PersistentObject;
  * Initial Date:  19 avr. 2011 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class OrderLineImpl extends PersistentObject implements OrderLine {
 
 	private static final long serialVersionUID = -2630817206449967033L;
 	
+	@ManyToOne(targetEntity=OfferImpl.class)
 	private Offer offer;
+	@Embedded
 	private Price unitPrice;
+	@Embedded
 	private Price totalPrice;
 	
 	public Offer getOffer() {

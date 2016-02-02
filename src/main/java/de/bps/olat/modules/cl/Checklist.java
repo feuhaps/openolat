@@ -27,6 +27,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.ModifiedInfo;
@@ -46,6 +47,8 @@ public class Checklist extends PersistentObject implements ModifiedInfo, Seriali
 	private String title;
 	private String description;
 	private Date lastMofified;
+	
+	@OneToMany
 	private List<Checkpoint> checkpoints = new ArrayList<Checkpoint>();
 	
 	public Checklist() {

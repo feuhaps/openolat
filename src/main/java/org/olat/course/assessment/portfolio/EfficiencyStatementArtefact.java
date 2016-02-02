@@ -20,6 +20,8 @@
 
 package org.olat.course.assessment.portfolio;
 
+import javax.persistence.Entity;
+
 import org.olat.portfolio.model.artefacts.AbstractArtefact;
 
 /**
@@ -31,6 +33,7 @@ import org.olat.portfolio.model.artefacts.AbstractArtefact;
  * Initial Date:  7 oct. 2010 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class EfficiencyStatementArtefact extends AbstractArtefact {
 
 	private static final long serialVersionUID = 896728271562859702L;

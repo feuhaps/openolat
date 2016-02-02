@@ -20,6 +20,8 @@
 
 package org.olat.resource.accesscontrol.model;
 
+import javax.persistence.Entity;
+
 import org.olat.resource.accesscontrol.provider.free.FreeAccessHandler;
 
 
@@ -32,6 +34,7 @@ import org.olat.resource.accesscontrol.provider.free.FreeAccessHandler;
  * Initial Date:  27 avr. 2011 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class FreeAccessMethod extends AbstractAccessMethod {
 
 	private static final long serialVersionUID = -6028245920419886453L;

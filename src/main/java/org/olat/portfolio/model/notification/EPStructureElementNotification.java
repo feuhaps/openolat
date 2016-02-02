@@ -21,6 +21,8 @@ package org.olat.portfolio.model.notification;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 import org.olat.basesecurity.IdentityShort;
 import org.olat.core.commons.persistence.PersistentObject;
 
@@ -29,6 +31,7 @@ import org.olat.core.commons.persistence.PersistentObject;
  * 
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class EPStructureElementNotification extends PersistentObject implements EPNotification {
 
 	private static final long serialVersionUID = -1065069940086963966L;

@@ -25,6 +25,8 @@
 
 package org.olat.resource;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.OLATResourceable;
 import org.olat.core.logging.AssertException;
@@ -35,6 +37,7 @@ import org.olat.core.logging.AssertException;
  * @author Andreas
  *
  */
+@Entity
 public class OLATResourceImpl extends PersistentObject implements OLATResource {
 
 	private static final long serialVersionUID = 4797534778467150679L;

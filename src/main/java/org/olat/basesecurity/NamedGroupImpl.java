@@ -25,6 +25,9 @@
 
 package org.olat.basesecurity;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 
 /**
@@ -33,8 +36,10 @@ import org.olat.core.commons.persistence.PersistentObject;
  * 
  * @author Felix Jost
  */
+@Entity
 public class NamedGroupImpl extends PersistentObject implements NamedGroup {
 	private String groupName;
+	@ManyToOne(targetEntity=SecurityGroupImpl.class)
 	private SecurityGroup securityGroup;
 
 	/**

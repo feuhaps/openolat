@@ -28,8 +28,13 @@ package org.olat.upgrade.model;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import org.olat.basesecurity.IdentityImpl;
 import org.olat.basesecurity.SecurityGroup;
+import org.olat.basesecurity.SecurityGroupImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.ModifiedInfo;
 import org.olat.core.id.OLATResourceable;
@@ -41,10 +46,12 @@ import org.olat.repository.RepositoryEntry;
 import org.olat.repository.RepositoryEntryManagedFlag;
 import org.olat.repository.RepositoryEntryRef;
 import org.olat.resource.OLATResource;
+import org.olat.resource.OLATResourceImpl;
 
 /**
  *Represents a repository entry.
  */
+@Entity
 public class RepositoryEntryUpgrade extends PersistentObject implements ModifiedInfo, OLATResourceable, RepositoryEntryRef {
 
 	private static final long serialVersionUID = 5319576295875289054L;
@@ -70,11 +77,16 @@ public class RepositoryEntryUpgrade extends PersistentObject implements Modified
 	public static final String MEMBERS_ONLY =  "membersonly";
 	
 	private String softkey; // mandatory
+	@ManyToOne(targetEntity=OLATResourceImpl.class)
 	private OLATResource olatResource; // mandatory
+	@ManyToOne(targetEntity=SecurityGroupImpl.class)
 	private SecurityGroup ownerGroup; // mandatory
 	//fxdiff VCRP-1,2: access control of resources
+	@ManyToOne(targetEntity=SecurityGroupImpl.class)
 	private SecurityGroup tutorGroup;
+	@ManyToOne(targetEntity=SecurityGroupImpl.class)
 	private SecurityGroup participantGroup;
+	@OneToMany
 	private Set<RepositoryEntryUpgradeToGroupRelation> groups;
 	private String resourcename; // mandatory
 	private String displayname; // mandatory

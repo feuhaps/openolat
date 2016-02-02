@@ -24,6 +24,10 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 import org.olat.core.commons.persistence.PersistentObject;
 
 /**
@@ -35,13 +39,17 @@ import org.olat.core.commons.persistence.PersistentObject;
  * Initial Date:  19 avr. 2011 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class OrderPartImpl extends PersistentObject implements OrderPart {
 
 	private static final long serialVersionUID = -3572049955754185583L;
 	
+	@Embedded
 	private Price total;
+	@Embedded
 	private Price totalOrderLines;
 	
+	@OneToMany(targetEntity=OrderLineImpl.class)
 	private List<OrderLine> lines;
 	
 	@Override

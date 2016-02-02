@@ -21,6 +21,10 @@ package org.olat.portfolio.model.structel;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.portfolio.model.artefacts.AbstractArtefact;
@@ -34,6 +38,7 @@ import org.olat.portfolio.model.artefacts.AbstractArtefact;
  * Initial Date:  11.06.2010 <br>
  * @author rhaag, roman.haag@frentix.com, http://www.frentix.com
  */
+@Entity
 public class EPStructureToArtefactLink extends PersistentObject {
 
 	private static final long serialVersionUID = -7239075055788273545L;
@@ -68,7 +73,7 @@ public class EPStructureToArtefactLink extends PersistentObject {
 	/**
 	 * @uml.property  name="artefact"
 	 */
-	private AbstractArtefact artefact;
+	@ManyToOne private AbstractArtefact artefact;
 
 	/**
 	 * Getter of the property <tt>artefact</tt>
@@ -91,6 +96,7 @@ public class EPStructureToArtefactLink extends PersistentObject {
 	/**
 	 * @uml.property  name="structureElement"
 	 */
+	@ManyToOne(targetEntity=EPStructureElement.class)
 	private PortfolioStructure structureElement;
 
 	/**
@@ -137,6 +143,7 @@ public class EPStructureToArtefactLink extends PersistentObject {
 	/**
 	 * @uml.property  name="author"
 	 */
+	@ManyToOne(targetEntity=IdentityImpl.class)
 	private Identity author;
 
 	/**

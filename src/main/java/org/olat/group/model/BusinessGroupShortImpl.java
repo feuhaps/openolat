@@ -19,6 +19,8 @@
  */
 package org.olat.group.model;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.util.resource.OresHelper;
 import org.olat.group.BusinessGroup;
@@ -33,6 +35,7 @@ import org.olat.group.BusinessGroupShort;
  * 
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class BusinessGroupShortImpl extends PersistentObject implements BusinessGroupShort {
 
 	private static final long serialVersionUID = -5404538852842562897L;

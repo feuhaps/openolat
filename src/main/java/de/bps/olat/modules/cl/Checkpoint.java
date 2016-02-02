@@ -24,6 +24,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.id.ModifiedInfo;
@@ -36,6 +40,7 @@ import org.olat.core.id.ModifiedInfo;
  * Initial Date:  23.07.2009 <br>
  * @author bja <bja@bps-system.de>
  */
+@Entity
 public class Checkpoint extends PersistentObject implements ModifiedInfo, Serializable {
 
 	private static final long serialVersionUID = 6963103659557231124L;
@@ -43,7 +48,11 @@ public class Checkpoint extends PersistentObject implements ModifiedInfo, Serial
 	private String description;
 	private String mode;
 	private Date lastModified;
+	
+	@ManyToOne
 	private Checklist checklist;
+	
+	@OneToMany
 	private List<CheckpointResult> results = new ArrayList<CheckpointResult>();
 	
 	public Checkpoint() {

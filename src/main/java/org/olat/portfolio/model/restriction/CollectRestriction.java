@@ -19,6 +19,8 @@
  */
 package org.olat.portfolio.model.restriction;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.util.StringHelper;
 
@@ -29,6 +31,7 @@ import org.olat.core.util.StringHelper;
  * Initial Date:  08.06.2010 <br>
  * @author rhaag
  */
+@Entity
 public class CollectRestriction extends PersistentObject {
 
 	/**

@@ -22,10 +22,15 @@ package org.olat.commons.info.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.id.OLATResourceable;
 
+@Entity
 public class InfoMessageImpl extends PersistentObject implements InfoMessage {
 
 	private static final long serialVersionUID = 6373476657660866469L;
@@ -40,7 +45,9 @@ public class InfoMessageImpl extends PersistentObject implements InfoMessage {
 	private String subPath;
 	private String businessPath;
 	
+	@ManyToOne(targetEntity=IdentityImpl.class)
 	private Identity author;
+	@ManyToOne(targetEntity=IdentityImpl.class)
 	private Identity modifier;
 	
 	public InfoMessageImpl() {

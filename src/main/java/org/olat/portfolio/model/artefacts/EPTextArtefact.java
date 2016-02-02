@@ -19,6 +19,8 @@
  */
 package org.olat.portfolio.model.artefacts;
 
+import javax.persistence.Entity;
+
 /**
  * Description:<br>
  * Artefact of type text
@@ -27,6 +29,7 @@ package org.olat.portfolio.model.artefacts;
  * Initial Date:  01.09.2010 <br>
  * @author Roman Haag, roman.haag@frentix.com, http://www.frentix.com
  */
+@Entity
 public class EPTextArtefact extends AbstractArtefact {
 
 	private static final long serialVersionUID = -3705686575442377717L;

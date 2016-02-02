@@ -19,6 +19,8 @@
  */
 package org.olat.portfolio.model.artefacts;
 
+import javax.persistence.Entity;
+
 import org.olat.portfolio.model.structel.EPStructureElement;
 
 /**
@@ -30,6 +32,7 @@ import org.olat.portfolio.model.structel.EPStructureElement;
  * Initial Date:  6 déc. 2010 <br>
  * @author srosse, stephane.rosse@frentix.com, http.//www.frentix.com
  */
+@Entity
 public class EPStructureElementArtefact extends AbstractArtefact {
 
 	private static final long serialVersionUID = -9179795976449029211L;

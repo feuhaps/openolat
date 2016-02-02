@@ -22,6 +22,9 @@ package de.bps.olat.modules.cl;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.ModifiedInfo;
 
@@ -33,11 +36,13 @@ import org.olat.core.id.ModifiedInfo;
  * Initial Date:  23.07.2009 <br>
  * @author bja <bja@bps-system.de>
  */
+@Entity
 public class CheckpointResult extends PersistentObject implements ModifiedInfo, Serializable {
 	
 	private Date lastModified;
 	private boolean result;
 	private Long identityId;
+	@ManyToOne
 	private Checkpoint checkpoint;
 
 	public CheckpointResult() {

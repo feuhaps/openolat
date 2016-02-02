@@ -25,6 +25,11 @@
 
 package org.olat.upgrade.model;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.apache.poi.hwpf.usermodel.Bookmark;
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.logging.AssertException;
@@ -34,6 +39,7 @@ import org.olat.core.logging.AssertException;
  * 
  * @author Sabina Jeger
  */
+@Entity
 public class BookmarkImpl extends PersistentObject {
 	private static final long serialVersionUID = -7176191690095059290L;
 	private static final int DISPLAYRESTYPE_MAXLENGTH = 50;
@@ -47,6 +53,7 @@ public class BookmarkImpl extends PersistentObject {
 	private String title;
 	private String description;
 	private String detaildata;
+	@ManyToOne(targetEntity=IdentityImpl.class)
 	private Identity owner = null;
 
 	/**

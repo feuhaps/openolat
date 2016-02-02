@@ -154,7 +154,7 @@ class EMailIdentity implements Identity {
 		}
 	}
 
-	private class EMailPreferences implements Preferences {
+	private class EMailPreferences extends Preferences {
 		private static final long serialVersionUID = 7039109437910126584L;
 
 		@Override

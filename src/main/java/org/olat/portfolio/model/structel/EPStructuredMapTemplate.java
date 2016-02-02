@@ -19,6 +19,8 @@
  */
 package org.olat.portfolio.model.structel;
 
+import javax.persistence.Entity;
+
 /**
  * 
  * Description:<br>
@@ -28,6 +30,7 @@ package org.olat.portfolio.model.structel;
  * Initial Date:  11.06.2010 <br>
  * @author rhaag, roman.haag@frentix.com, http://www.frentix.com
  */
+@Entity
 public class EPStructuredMapTemplate extends EPAbstractMap {
 
 	private static final long serialVersionUID = -3843189834931713843L;

@@ -22,6 +22,10 @@ package org.olat.portfolio.model.structel;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import org.olat.core.commons.persistence.PersistenceHelper;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.OLATResourceable;
@@ -29,6 +33,7 @@ import org.olat.core.util.Formatter;
 import org.olat.core.util.filter.FilterFactory;
 import org.olat.portfolio.model.restriction.CollectRestriction;
 import org.olat.resource.OLATResource;
+import org.olat.resource.OLATResourceImpl;
 
 
 
@@ -39,12 +44,16 @@ import org.olat.resource.OLATResource;
  * Initial Date:  08.06.2010 <br>
  * @author rhaag
  */
+@Entity
 public class EPStructureElement extends PersistentObject implements PortfolioStructure, OLATResourceable  {
 
 	private static final long serialVersionUID = -4468638028435147963L;
 	
+	@ManyToOne (targetEntity=OLATResourceImpl.class)
 	private OLATResource olatResource;
+	@OneToMany 
 	private List<EPStructureToArtefactLink> artefacts;
+	@OneToMany 
 	private List<EPStructureToStructureLink> children;
 	
 	/**
@@ -186,7 +195,7 @@ public class EPStructureElement extends PersistentObject implements PortfolioStr
 	/**
 	 * @uml.property  name="collectRestriction"
 	 */
-	private List<CollectRestriction> collectRestrictions;
+	@OneToMany private List<CollectRestriction> collectRestrictions;
 
 	/**
 	 * Getter of the property <tt>collectRestriction</tt>
@@ -237,7 +246,7 @@ public class EPStructureElement extends PersistentObject implements PortfolioStr
 	/**
 	 * @uml.property  name="root"
 	 */
-	private EPStructureElement root;
+	@ManyToOne private EPStructureElement root;
 
 	/**
 	 * Getter of the property <tt>root</tt>
@@ -260,6 +269,7 @@ public class EPStructureElement extends PersistentObject implements PortfolioStr
 	/**
 	 * 
 	 */
+	@ManyToOne (targetEntity=EPStructureElement.class)
 	private PortfolioStructureMap rootMap;
 	
 	public PortfolioStructureMap getRootMap() {

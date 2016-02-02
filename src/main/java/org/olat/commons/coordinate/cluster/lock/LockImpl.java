@@ -25,6 +25,10 @@
 
 package org.olat.commons.coordinate.cluster.lock;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.logging.AssertException;
@@ -37,9 +41,11 @@ import org.olat.core.logging.AssertException;
  * <P>
  * @author Felix Jost, http://www.goodsolutions.ch
  */
+@Entity
 public class LockImpl extends PersistentObject {
 
 	private static final long serialVersionUID = 1978265978735682673L;
+	@ManyToOne(targetEntity=IdentityImpl.class) 
 	private Identity owner;
 	private String asset;
 	private String nodeId;

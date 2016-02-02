@@ -25,6 +25,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.olat.basesecurity.IdentityImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.Identity;
 import org.olat.core.id.ModifiedInfo;
@@ -40,20 +46,26 @@ import org.olat.core.util.StringHelper;
  * Initial Date:  19 avr. 2011 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class OrderImpl extends PersistentObject implements Order, ModifiedInfo {
 
 	private static final long serialVersionUID = 2982829081818496553L;
 	private boolean valid;
 	private Date lastModified;
+	@ManyToOne(targetEntity=IdentityImpl.class)
 	private Identity delivery;
 	private String orderStatus;
 	
+	@Embedded
 	private Price total;
+	@Embedded
 	private Price totalOrderLines;
+	@Embedded
 	private Price discount;
 	
 	private String currencyCode;
 	
+	@OneToMany(targetEntity=OrderPartImpl.class)
 	private List<OrderPart> parts;
 	
 	@Override

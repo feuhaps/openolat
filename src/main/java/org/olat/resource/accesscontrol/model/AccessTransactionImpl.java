@@ -19,17 +19,26 @@
  */
 package org.olat.resource.accesscontrol.model;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.util.StringHelper;
 
+@Entity
 public class AccessTransactionImpl extends PersistentObject implements AccessTransaction {
 
 	private static final long serialVersionUID = -5420630862571680567L;
 	
+	@Embedded
 	private Price amount;
+	@ManyToOne(targetEntity=OrderImpl.class)
 	private Order order;
+	@ManyToOne(targetEntity=OrderPartImpl.class)
 	private OrderPart orderPart;
 	
+	@ManyToOne(targetEntity=AbstractAccessMethod.class)
 	private AccessMethod method;
 	private String statusStr = AccessTransactionStatus.NEW.name();
 	

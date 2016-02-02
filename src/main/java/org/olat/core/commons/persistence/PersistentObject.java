@@ -28,6 +28,9 @@ package org.olat.core.commons.persistence;
 
 import java.util.Date;
 
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
 import org.olat.core.id.CreateInfo;
 import org.olat.core.id.Persistable;
 
@@ -38,8 +41,10 @@ import org.olat.core.id.Persistable;
  *
  */
 @SuppressWarnings("unused")
+@MappedSuperclass
 public abstract class PersistentObject implements CreateInfo, Persistable {
 
+	@Id
 	private Long key = null;
 	private int version = 0;
 	protected Date creationDate;

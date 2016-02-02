@@ -24,6 +24,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
 import org.olat.core.commons.persistence.PersistentObject;
 
 /**
@@ -35,6 +40,7 @@ import org.olat.core.commons.persistence.PersistentObject;
  * Initial Date:  28 mars 2011 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public class DBMailImpl extends PersistentObject implements DBMail {
 
 	private static final long serialVersionUID = 6407865711769961684L;
@@ -44,9 +50,9 @@ public class DBMailImpl extends PersistentObject implements DBMail {
 	private Date lastModified;
 	private String metaId;
 	
-	private DBMailRecipient from;
-	private List<DBMailRecipient> recipients;
-	private DBMailContext context;
+	@ManyToOne private DBMailRecipient from;
+	@ManyToMany private List<DBMailRecipient> recipients;
+	@Embedded private DBMailContext context;
 	
 	
 	

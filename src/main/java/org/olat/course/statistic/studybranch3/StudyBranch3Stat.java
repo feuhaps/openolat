@@ -26,6 +26,8 @@
 
 package org.olat.course.statistic.studybranch3;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 
 /**
@@ -34,6 +36,7 @@ import org.olat.core.commons.persistence.PersistentObject;
  * Initial Date:  12.02.2010 <br>
  * @author Stefan
  */
+@Entity
 public class StudyBranch3Stat extends PersistentObject {
 	
 	private String businessPath;

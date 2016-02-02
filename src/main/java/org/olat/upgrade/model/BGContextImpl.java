@@ -25,7 +25,11 @@
 
 package org.olat.upgrade.model;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.olat.basesecurity.SecurityGroup;
+import org.olat.basesecurity.SecurityGroupImpl;
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.logging.AssertException;
 
@@ -37,6 +41,7 @@ import org.olat.core.logging.AssertException;
  * 
  * @author gnaegi
  */
+@Entity
 public class BGContextImpl extends PersistentObject {
 	private static final long serialVersionUID = -8242401346721569801L;
 
@@ -45,6 +50,7 @@ public class BGContextImpl extends PersistentObject {
 	private String name;
 	private String description;
 	private String groupType;
+	@ManyToOne(targetEntity=SecurityGroupImpl.class)
 	private SecurityGroup ownerGroup;
 	private boolean defaultContext;
 

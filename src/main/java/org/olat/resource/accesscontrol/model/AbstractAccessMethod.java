@@ -22,6 +22,8 @@ package org.olat.resource.accesscontrol.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 import org.olat.core.commons.persistence.PersistentObject;
 import org.olat.core.id.ModifiedInfo;
 
@@ -35,6 +37,7 @@ import org.olat.core.id.ModifiedInfo;
  * Initial Date:  18 avr. 2011 <br>
  * @author srosse, stephane.rosse@frentix.com, http://www.frentix.com
  */
+@Entity
 public abstract class AbstractAccessMethod extends PersistentObject implements AccessMethod, ModifiedInfo  {
 
 	private static final long serialVersionUID = 5656490927761461774L;
