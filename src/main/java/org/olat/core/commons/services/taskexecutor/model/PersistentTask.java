@@ -156,7 +156,7 @@ public class PersistentTask implements Task, CreateInfo, ModifiedInfo, Persistab
 	}
 
 	@Override
-	@Transient
+//	@Transient
 	public TaskStatus getStatus() {
 		return statusStr == null ? null : TaskStatus.valueOf(statusStr);
 	}

@@ -227,7 +227,7 @@ public class QuestionItemImpl implements QuestionItemFull, CreateInfo, ModifiedI
 		this.taxonomyLevel = taxonomyLevel;
 	}
 	
-	@Transient
+//	@Transient
 	@Override
 	public String getTaxonomicPath() {
 		if(taxonomyLevel != null) {
@@ -404,7 +404,7 @@ public class QuestionItemImpl implements QuestionItemFull, CreateInfo, ModifiedI
 	}
 
 
-	@Transient
+//	@Transient
 	public QuestionStatus getQuestionStatus() {
 		if(StringHelper.containsNonWhitespace(status)) {
 			return QuestionStatus.valueOf(status);
